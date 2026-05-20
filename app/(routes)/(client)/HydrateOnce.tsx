@@ -1,13 +1,11 @@
 'use client'
-import { aboutPostBlockAtom } from 'features/about/aboutPost.atom'
-import type { NotionPageMeta, TraversableBlock } from 'features/notion/types'
+import type { PostIndex } from 'features/notion/types'
 import { postsAtom } from 'features/postList/postList.atom'
 import { useHydrateAtoms } from 'jotai/utils'
 
 interface Props {
   state: {
-    posts: NotionPageMeta[]
-    about: TraversableBlock[]
+    posts: PostIndex[]
   }
 }
 
@@ -16,10 +14,7 @@ interface Props {
  * Hydrate 컴포넌트에는 UI 상태를 포함시키지 않습니다.
  */
 export function HydrateOnce({ state }: Props) {
-  useHydrateAtoms([
-    [postsAtom, state.posts],
-    [aboutPostBlockAtom, state.about],
-  ])
+  useHydrateAtoms([[postsAtom, state.posts]])
 
   return null
 }

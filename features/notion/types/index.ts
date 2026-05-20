@@ -1,5 +1,5 @@
 export * from './blocks'
 export * from './guards'
-export * from './page'
+export * from './r2'
 export * from './react'
 export * from './unions'

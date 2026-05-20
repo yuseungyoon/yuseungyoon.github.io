@@ -8,7 +8,12 @@ import type {
   ParagraphBlockObjectResponse,
   RichTextItemResponse,
 } from '@notionhq/client'
-import type { BookmarkMeta } from 'features/notion/utils/processBlock/processor/bookmark.server'
+type BookmarkMeta = {
+  url: string
+  title?: string
+  description?: string
+  image?: string
+}
 
 type BaseBlock = Omit<ParagraphBlockObjectResponse, 'type' | 'paragraph'>
 
@@ -26,9 +31,10 @@ export type GroupedNumberedListItemResponse = BaseBlock & {
   }
 }
 
-export type ExtendedImageBlockObjectResponse = {
+export type ExtendedImageBlockObjectResponse = Omit<ImageBlockObjectResponse, 'image'> & {
   blurDataURL?: string
-} & ImageBlockObjectResponse
+  image: ImageBlockObjectResponse['image'] & { cached_url?: string }
+}
 
 export type ExtendedCalloutBlockObjectResponse = CalloutBlockObjectResponse
 

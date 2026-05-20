@@ -26,12 +26,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { posts, about } = await startPageLoader()
+  const { posts } = await startPageLoader()
   return (
     <html lang="ko">
       <body>
         <Providers>
-          <HydrateOnce state={{ posts, about }} />
+          <HydrateOnce state={{ posts }} />
           <Navigation />
           <main>{children}</main>
         </Providers>

@@ -1,12 +1,11 @@
 'use client'
-import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import { disassemble } from 'es-hangul'
 import { useAtomValue } from 'jotai'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDeferredValue, useMemo, useState } from 'react'
-import { postsAtom } from '../postList.atom'
 import { PostListView } from '../components/PostListView'
 import { PostSearchFilter } from '../components/PostSearchFilter'
+import { postsAtom } from '../postList.atom'
 
 export function PostListContainer() {
   const postData = useAtomValue(postsAtom)
@@ -29,7 +28,7 @@ export function PostListContainer() {
   const tags = useMemo(() => {
     const countMap = new Map<string, { id: string; name: string; count: number }>()
     for (const post of postData ?? []) {
-      for (const t of getNotionPageMeta(post).tags) {
+      for (const t of post.tags) {
         const entry = countMap.get(t.id)
         if (entry) entry.count++
         else countMap.set(t.id, { id: t.id, name: t.name, count: 1 })
@@ -53,13 +52,12 @@ export function PostListContainer() {
     const decomposed = deferredKeyword ? disassemble(deferredKeyword) : ''
     return (
       postData?.filter(p => {
-        const meta = getNotionPageMeta(p)
-        if (selectedTagId && !meta.tags.some(t => t.id === selectedTagId)) return false
+        if (selectedTagId && !p.tags.some(t => t.id === selectedTagId)) return false
         if (!decomposed) return true
         return (
-          disassemble(meta.title.toLowerCase()).includes(decomposed) ||
-          disassemble(meta.summary.toLowerCase()).includes(decomposed) ||
-          meta.tags.some(t => disassemble(t.name.toLowerCase()).includes(decomposed))
+          disassemble(p.title.toLowerCase()).includes(decomposed) ||
+          disassemble(p.summary.toLowerCase()).includes(decomposed) ||
+          p.tags.some(t => disassemble(t.name.toLowerCase()).includes(decomposed))
         )
       }) ?? []
     )

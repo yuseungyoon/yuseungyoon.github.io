@@ -1,18 +1,19 @@
 'use client'
 import type { NotionComponentProps } from 'features/notion/types'
-import { getPlainText } from '../richText/getPlainText'
-import { useNotionImg } from './useNotionImg'
 import { default as Img } from 'next/image'
 import { overlay } from 'overlay-kit'
 import { useEffect, useState } from 'react'
+import { getPlainText } from '../richText/getPlainText'
+import { getImgUrl } from './getImgUrl'
 import * as css from './NotionImg.css'
 
 export function NotionImg({ block }: NotionComponentProps<'image'>) {
-  const { imgUrl, reload, isReloading } = useNotionImg(block)
+  const imgUrl = getImgUrl(block)
   const [[width, height], setImgSize] = useState<[number, number]>([400, 300])
   const [_, setZoomed] = useState<boolean>(false)
 
   useEffect(() => {
+    if (!imgUrl) return
     const img = new Image()
     img.src = imgUrl
     img.onload = () => {
@@ -20,6 +21,8 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
       else setImgSize([img.width, img.height])
     }
   }, [imgUrl])
+
+  if (!imgUrl) return null
 
   const handleZoomImg = () => {
     setZoomed(true)
@@ -44,10 +47,9 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
             unoptimized
             key={imgUrl}
             blurDataURL={block.blurDataURL}
-            src={isReloading ? '' : imgUrl}
+            src={imgUrl}
             alt={getPlainText(block?.image?.caption)}
             priority
-            onError={() => reload()}
             width={width}
             height={height}
           />
@@ -73,10 +75,9 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
           className={css.imgDefault}
           unoptimized
           key={imgUrl}
-          src={isReloading ? '' : imgUrl}
+          src={imgUrl}
           alt={getPlainText(block?.image?.caption)}
           priority
-          onError={() => reload()}
           width={width}
           height={height}
         />

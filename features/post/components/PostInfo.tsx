@@ -1,8 +1,8 @@
 'use client'
-import type { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
+import type { PostIndex } from 'features/notion/types'
 import * as css from './PostInfo.css'
 
-export function PostInfo({ meta }: { meta: ReturnType<typeof getNotionPageMeta> }) {
+export function PostInfo({ meta }: { meta: PostIndex }) {
   return (
     <div className={css.postInfoFrame}>
       <span className={css.postInfoText}>{meta.summary}</span>

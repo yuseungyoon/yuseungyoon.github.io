@@ -1,10 +1,9 @@
-import type { NotionPageMeta } from 'features/notion/types'
-import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
+import type { PostIndex } from 'features/notion/types'
 import Link from 'next/link'
 import * as css from './PostListView.css'
 
 interface PostListViewProps {
-  posts: NotionPageMeta[]
+  posts: PostIndex[]
 }
 
 export function PostListView({ posts }: PostListViewProps) {
@@ -19,14 +18,13 @@ export function PostListView({ posts }: PostListViewProps) {
   )
 }
 
-PostListView.Row = ({ meta }: { meta: NotionPageMeta }) => {
-  const postMeta = getNotionPageMeta(meta)
-  const year = postMeta.date.slice(0, 4)
-  const path = `/${year}/${postMeta.slug}`
+PostListView.Row = ({ meta }: { meta: PostIndex }) => {
+  const year = meta.date.slice(0, 4)
+  const path = `/${year}/${meta.slug}`
   return (
     <li className={css.postLinkFrame}>
       <Link href={path} className={css.postLinkInner}>
-        <span className={css.postLinkTitle}>{`${postMeta.title}`}</span>
+        <span className={css.postLinkTitle}>{`${meta.title}`}</span>
       </Link>
     </li>
   )

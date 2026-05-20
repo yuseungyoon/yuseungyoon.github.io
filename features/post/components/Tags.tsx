@@ -1,7 +1,7 @@
-import type { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
+import type { PostIndex } from 'features/notion/types'
 import * as css from './Tags.css'
 
-type Tag = ReturnType<typeof getNotionPageMeta>['tags'][number]
+type Tag = PostIndex['tags'][number]
 export function Tags({ tags }: { tags: Tag[] }) {
   return (
     <div className={css.tagsFrame}>
