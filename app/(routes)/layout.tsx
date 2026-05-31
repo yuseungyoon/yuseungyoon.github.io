@@ -11,6 +11,7 @@ import { Providers } from './(client)/Providers'
 import { startPageLoader } from './server'
 
 export const metadata: Metadata = {
+  metadataBase: ENV.NEXT_PUBLIC_ROOT ? new URL(ENV.NEXT_PUBLIC_ROOT) : undefined,
   title: meta.title,
   description: meta.description,
   authors: { name: meta.author, url: ENV.NEXT_PUBLIC_ROOT },
