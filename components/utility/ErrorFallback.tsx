@@ -1,4 +1,4 @@
-export function ErrorFallback({ message, error = null }: { message?: string; error?: Error | null }) {
+export function ErrorFallback() {
   return (
     <></>
     // <View className={BASE}>

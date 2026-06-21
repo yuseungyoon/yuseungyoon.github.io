@@ -41,7 +41,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   // system preference 변경 시 theme이 'system'이면 동기화
   useIsomorphicLayoutEffect(() => {
-    theme === 'system' && setTheme(appliedTheme)
+    if (theme === 'system') setTheme(appliedTheme)
   }, [prefersDark])
 
   // theme, storage 동기화
