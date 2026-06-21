@@ -1,11 +1,16 @@
-'use client'
-import { useAtomValue } from 'jotai'
-import { RenderHeadings } from '../components/RenderHeadings'
-import { tableOfContentsAtom } from '../tableOfContents.atom'
-import * as css from './TableOfContentsContainer.css'
+"use client";
 
-export function TableOfContentsContainer() {
-  const headings = useAtomValue(tableOfContentsAtom)
+import { RenderHeadings } from "../components/RenderHeadings";
+import * as css from "./TableOfContentsContainer.css";
+import { processHeadings } from "../util/processHeadings";
+import { TraversableBlock } from "features/notion/types";
+
+export function TableOfContentsContainer({
+  blocks,
+}: {
+  blocks: TraversableBlock[];
+}) {
+  const headings = processHeadings(blocks);
 
   return (
     headings.length > 0 && (
@@ -18,5 +23,5 @@ export function TableOfContentsContainer() {
         </div>
       </aside>
     )
-  )
+  );
 }
