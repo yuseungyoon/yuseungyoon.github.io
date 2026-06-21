@@ -59,7 +59,6 @@ const postLinkTitleBase = style({
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   width: "100%",
   fontWeight: 400,
-  lineHeight: 1,
   color: "inherit",
   whiteSpace: "nowrap",
   overflow: "hidden",
@@ -69,7 +68,7 @@ const postLinkTitleBase = style({
 export const postLinkTitle = style([
   postLinkTitleBase,
   {
-    lineHeight: 1.1,
+    lineHeight: 1.15,
     display: "inline-block",
     color: "inherit",
   },
@@ -80,7 +79,7 @@ export const postLinkDate = style({
   fontSize: dp(3),
   fontFamily: '"Google Sans Code", monospace',
   fontWeight: 400,
-  lineHeight: 1.1,
+  lineHeight: 1.15,
   color: "inherit",
 });
 
