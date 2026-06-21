@@ -1,11 +1,12 @@
-import { style } from '@vanilla-extract/css'
+import { style } from "@vanilla-extract/css";
+import { layouts } from "styles/vars/layouts.css";
 
 export const base = style({
-  display: 'flex',
-  flexDirection: 'column',
-  maxWidth: '42.5rem',
-  minWidth: 0,
+  display: "flex",
+  flexDirection: "column",
+  maxWidth: layouts.width,
+  width: "100%",
   flex: 1,
-  margin: 0,
-  overflow: 'hidden',
-})
+  margin: "auto",
+  overflow: "hidden",
+});
