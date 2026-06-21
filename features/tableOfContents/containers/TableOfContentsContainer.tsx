@@ -1,16 +1,12 @@
-"use client";
+'use client'
 
-import { RenderHeadings } from "../components/RenderHeadings";
-import * as css from "./TableOfContentsContainer.css";
-import { processHeadings } from "../util/processHeadings";
-import { TraversableBlock } from "features/notion/types";
+import { RenderHeadings } from '../components/RenderHeadings'
+import * as css from './TableOfContentsContainer.css'
+import { processHeadings } from '../util/processHeadings'
+import { TraversableBlock } from 'features/notion/types'
 
-export function TableOfContentsContainer({
-  blocks,
-}: {
-  blocks: TraversableBlock[];
-}) {
-  const headings = processHeadings(blocks);
+export function TableOfContentsContainer({ blocks }: { blocks: TraversableBlock[] }) {
+  const headings = processHeadings(blocks)
 
   return (
     headings.length > 0 && (
@@ -23,5 +19,5 @@ export function TableOfContentsContainer({
         </div>
       </aside>
     )
-  );
+  )
 }

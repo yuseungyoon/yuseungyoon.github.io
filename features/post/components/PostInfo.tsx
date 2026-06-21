@@ -1,6 +1,6 @@
-"use client";
-import type { PostIndex } from "features/notion/types";
-import * as css from "./PostInfo.css";
+'use client'
+import type { PostIndex } from 'features/notion/types'
+import * as css from './PostInfo.css'
 
 export function PostInfo({ meta }: { meta: PostIndex }) {
   return (
@@ -8,5 +8,5 @@ export function PostInfo({ meta }: { meta: PostIndex }) {
       <span className={css.postInfoText}>{meta.date}</span>
       <span className={css.postInfoText}>{meta.summary}</span>
     </div>
-  );
+  )
 }

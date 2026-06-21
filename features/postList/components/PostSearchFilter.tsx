@@ -38,7 +38,8 @@ export function PostSearchFilter({ keyword, onKeywordChange, tags, selectedTagId
             key={tag.id}
             type="button"
             className={`${css.tagButton} ${selectedTagId === tag.id ? css.tagButtonActive : ''}`}
-            onClick={() => onTagSelect(tag.id)}>
+            onClick={() => onTagSelect(tag.id)}
+          >
             {tag.name}
           </button>
         ))}

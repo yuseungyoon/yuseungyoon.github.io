@@ -1,59 +1,59 @@
-import { style } from "@vanilla-extract/css";
-import { dp } from "styles/dp";
-import { color } from "styles/vars/color.css";
-import { layouts } from "styles/vars/layouts.css";
+import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
+import { color } from 'styles/vars/color.css'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const filterFrame = style({
-  display: "flex",
+  display: 'flex',
   paddingInline: layouts.full,
   maxWidth: layouts.width,
-  marginInline: "auto",
+  marginInline: 'auto',
   paddingTop: dp(18),
-  flexDirection: "column",
+  flexDirection: 'column',
   gap: dp(2),
-});
+})
 
 export const filterInputFrame = style({
-  display: "flex",
+  display: 'flex',
   gap: dp(2),
-  alignItems: "center",
+  alignItems: 'center',
   borderBottom: `1px solid ${color.background_opacity95}`,
   selectors: {
-    "&:focus-within": {
+    '&:focus-within': {
       borderBottom: `1px solid ${color.text}`,
     },
   },
-});
+})
 
 export const searchInput = style({
-  width: "100%",
-  border: "none",
-  background: "transparent",
+  width: '100%',
+  border: 'none',
+  background: 'transparent',
   color: color.text,
   fontSize: dp(4),
-  fontFamily: "Mona Sans, Pretendard",
+  fontFamily: 'Mona Sans, Pretendard',
   paddingBlock: dp(1.5),
-  outline: "none",
-});
+  outline: 'none',
+})
 
 export const tagList = style({
   marginTop: dp(3),
-  display: "flex",
-  flexWrap: "wrap",
+  display: 'flex',
+  flexWrap: 'wrap',
   gap: dp(2),
-});
+})
 
 export const tagButton = style({
-  border: "none",
-  background: "none",
+  border: 'none',
+  background: 'none',
   padding: 0,
-  cursor: "pointer",
+  cursor: 'pointer',
   color: color.text,
-  fontFamily: "Mona Sans, Pretendard",
+  fontFamily: 'Mona Sans, Pretendard',
   fontSize: dp(4),
-});
+})
 
 export const tagButtonActive = style({
   fontWeight: 700,
-  textDecoration: "underline",
-});
+  textDecoration: 'underline',
+})

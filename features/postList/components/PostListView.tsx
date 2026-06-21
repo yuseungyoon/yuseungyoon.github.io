@@ -1,9 +1,9 @@
-import type { PostIndex } from "features/notion/types";
-import Link from "next/link";
-import * as css from "./PostListView.css";
+import type { PostIndex } from 'features/notion/types'
+import Link from 'next/link'
+import * as css from './PostListView.css'
 
 interface PostListViewProps {
-  posts: PostIndex[];
+  posts: PostIndex[]
 }
 
 export function PostListView({ posts }: PostListViewProps) {
@@ -11,28 +11,26 @@ export function PostListView({ posts }: PostListViewProps) {
     <div className={css.postListFrame}>
       <div className={css.viewLink}>
         <PostListView.TitleRow />
-        {posts.map((p) => (
+        {posts.map(p => (
           <PostListView.Row key={p.id} meta={p} />
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 PostListView.Row = ({ meta }: { meta: PostIndex }) => {
-  const year = meta.date.slice(0, 4);
-  const path = `/${year}/${meta.slug}`;
+  const year = meta.date.slice(0, 4)
+  const path = `/${year}/${meta.slug}`
   return (
     <li className={css.postLinkFrame}>
       <Link href={path} className={css.postLinkInner}>
-        <span className={css.postLinkDate}>
-          {meta.date.split("-").join(".")}
-        </span>
+        <span className={css.postLinkDate}>{meta.date.split('-').join('.')}</span>
         <span className={css.postLinkTitle}>{`${meta.title}`}</span>
       </Link>
     </li>
-  );
-};
+  )
+}
 
 PostListView.TitleRow = () => {
   return (
@@ -40,5 +38,5 @@ PostListView.TitleRow = () => {
       <span className={css.postLinkDate}>DATE</span>
       <span className={css.postLinkDate}>TITLE</span>
     </div>
-  );
-};
+  )
+}

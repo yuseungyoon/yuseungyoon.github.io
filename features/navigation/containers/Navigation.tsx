@@ -1,32 +1,28 @@
-"use client";
+'use client'
 
-import { nextTheme, ThemeContext } from "features/theme";
-import Link from "next/link";
-import { useContext } from "react";
-import { MenuBtn } from "./MenuButton";
-import * as css from "./Navigation.css";
-import { NavProvider } from "./NavigationProvider";
+import { nextTheme, ThemeContext } from 'features/theme'
+import Link from 'next/link'
+import { useContext } from 'react'
+import { MenuBtn } from './MenuButton'
+import * as css from './Navigation.css'
+import { NavProvider } from './NavigationProvider'
 
 export function Navigation() {
   return (
     <NavProvider>
       <NavigationContent />
     </NavProvider>
-  );
+  )
 }
 
 function NavigationContent() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
     <div className={css.container}>
       <div className={css.frame}>
         <div className={css.buttonGroup}>
-          <MenuBtn
-            as={Link}
-            href="/"
-            aria-label={`글 리스트 페이지로 이동합니다`}
-          >
+          <MenuBtn as={Link} href="/" aria-label={`글 리스트 페이지로 이동합니다`}>
             *
           </MenuBtn>
         </div>
@@ -38,17 +34,17 @@ function NavigationContent() {
           >
             {(() => {
               switch (theme) {
-                case "system":
-                  return "👽";
-                case "light":
-                  return "🌞";
-                case "dark":
-                  return "🌚";
+                case 'system':
+                  return '👽'
+                case 'light':
+                  return '🌞'
+                case 'dark':
+                  return '🌚'
               }
             })()}
           </MenuBtn>
         </div>
       </div>
     </div>
-  );
+  )
 }

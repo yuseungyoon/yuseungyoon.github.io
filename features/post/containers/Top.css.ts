@@ -1,32 +1,32 @@
-import { style } from "@vanilla-extract/css";
-import { dp } from "styles/dp";
-import { breakpoints } from "styles/vars/breakpoints.css";
-import { layouts } from "styles/vars/layouts.css";
+import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const frame = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
   paddingInline: layouts.full,
   marginBottom: dp(36),
-  marginInline: "auto",
+  marginInline: 'auto',
   maxWidth: layouts.width,
-  width: "100%",
-  backgroundColor: "transparent",
-  "@media": {
+  width: '100%',
+  backgroundColor: 'transparent',
+  '@media': {
     [breakpoints.desktop_wide]: {},
     [breakpoints.desktop]: {},
   },
-});
+})
 
 export const iconFrame = style({
-  marginBottom: "0.5rem",
-});
+  marginBottom: '0.5rem',
+})
 
 export const icon = style({
-  fontSize: "2.5rem",
-});
+  fontSize: '2.5rem',
+})
 
 export const subtitle = style({
   fontSize: dp(3.8),
-});
+})

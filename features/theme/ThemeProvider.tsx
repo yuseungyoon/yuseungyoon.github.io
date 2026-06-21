@@ -52,10 +52,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const toggleTheme = useCallback(() => setTheme(prev => nextTheme(prev)), [])
 
-  const value = useMemo(
-    () => ({ theme, appliedTheme, setTheme, toggleTheme }),
-    [theme, appliedTheme, toggleTheme],
-  )
+  const value = useMemo(() => ({ theme, appliedTheme, setTheme, toggleTheme }), [theme, appliedTheme, toggleTheme])
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }

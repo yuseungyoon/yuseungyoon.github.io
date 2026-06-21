@@ -6,8 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write"
+    "lint": "oxlint",
+    "format": "oxfmt"
   },
   "dependencies": {
     "@fische/react": "0.0.3",
@@ -31,12 +31,13 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/rss": "^0.0.32",
     "@vanilla-extract/next-plugin": "^2.4.14",
+    "oxfmt": "^0.55.0",
+    "oxlint": "^1.70.0",
     "typescript": "^5"
   }
 }

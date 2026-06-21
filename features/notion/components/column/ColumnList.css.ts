@@ -32,5 +32,5 @@ export const columnCount = styleVariants(
     4: responsive(4, 2),
     5: responsive(5, 3),
   },
-  variant => [base, style(variant)],
+  variant => [base, style(variant)]
 )
