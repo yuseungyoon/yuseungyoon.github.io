@@ -4,9 +4,11 @@ import siteMeta from "assets/meta";
 import { Spacing } from "components/base/Spacing";
 import { Section } from "components/layout/Section";
 import { RenderNotion } from "features/notion/containers/_RenderNotion";
-import { getPostBySlug, getPostIndex } from "features/notion/remote/r2Fetch.server";
+import {
+  getPostBySlug,
+  getPostIndex,
+} from "features/notion/remote/r2Fetch.server";
 import { Top } from "features/post/containers/Top";
-import { TableOfContentsContainer } from "features/tableOfContents";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -29,7 +31,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return {};
@@ -62,19 +66,15 @@ export default async function Post({ params }: PostPageProps) {
   return (
     <>
       <Hydrate state={{ currentPost: content }} />
-
       <Top meta={meta} />
-
       <div className={pageStyles.contentLayout}>
-        <Section>
-          <Suspense fallback={<>...</>}>
+        <Suspense fallback={<>...</>}>
+          <Section>
             <RenderNotion blocks={content} />
-            <Spacing size={12} />
-          </Suspense>
-        </Section>
-        <TableOfContentsContainer />
+          </Section>
+        </Suspense>
       </div>
-      <Spacing size={48} />
+      <Spacing size={60} />
     </>
   );
 }
