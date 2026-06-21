@@ -27,20 +27,10 @@ function NavigationContent() {
             href="/"
             aria-label={`글 리스트 페이지로 이동합니다`}
           >
-            Seungyoon Yu
+            *
           </MenuBtn>
         </div>
         <div className={css.buttonGroup}>
-          <MenuBtn type="button">
-            <Link
-              href="https://thoughts.yooooon.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`신변잡기 블로그로 이동합니다`}
-            >
-              🤔
-            </Link>
-          </MenuBtn>
           <MenuBtn
             type="button"
             onClick={toggleTheme}
