@@ -16,6 +16,7 @@ export const dynamicParams = false
 
 export interface PostPageProps {
   params: Promise<{
+    year: string
     slug: string
   }>
 }
