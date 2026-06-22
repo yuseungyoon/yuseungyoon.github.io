@@ -65,13 +65,7 @@ export function PostListContainer() {
 
   return (
     <>
-      <PostSearchFilter
-        keyword={keyword}
-        onKeywordChange={handleKeywordChange}
-        tags={tags}
-        selectedTagId={selectedTagId}
-        onTagSelect={handleTagSelect}
-      />
+      <PostSearchFilter tags={tags} selectedTagId={selectedTagId} onTagSelect={handleTagSelect} />
       <PostListView posts={posts} />
     </>
   )
