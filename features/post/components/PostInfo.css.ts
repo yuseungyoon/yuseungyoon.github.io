@@ -13,7 +13,8 @@ export const postInfoFrame = style({
 
 export const postInfoText = style({
   fontSize: dp(4.25),
-  fontFamily: '"Mona Sans", "Pretendard", monospace',
+  lineHeight: 1.3,
+  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   fontWeight: 500,
   color: color.notion_gray,
 })
