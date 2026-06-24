@@ -53,9 +53,29 @@ export const tagButton = style({
   fontFamily: 'Mona Sans, Pretendard',
   fontSize: dp(3.5),
   backgroundColor: color.background_opacity95,
+  '@media': {
+    '(hover: hover) and (pointer: fine)': {
+      selectors: {
+        '&:hover': {
+          backgroundColor: color.accent,
+          color: color.black,
+        },
+      },
+    },
+  },
 })
 
 export const tagButtonActive = style({
   color: color.text_invert,
   backgroundColor: color.text,
+  '@media': {
+    '(hover: hover) and (pointer: fine)': {
+      selectors: {
+        '&:hover': {
+          color: color.text,
+          backgroundColor: color.text,
+        },
+      },
+    },
+  },
 })

@@ -30,22 +30,34 @@ export const frame = style({
 
 export const buttonGroup = style({
   display: 'flex',
-  flexDirection: 'row-reverse',
-  gap: dp(2),
+  flexDirection: 'row',
+  gap: dp(0.5),
 })
 
 export const categoryBtn = style({
-  margin: 0,
   display: 'inline-flex',
-  paddingInline: dp(0),
-  paddingBlock: dp(0),
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  border: 'none',
-  fontSize: dp(4.5),
-  backgroundColor: 'transparent',
+  lineHeight: 1.2,
+  borderRadius: dp(0.5),
+  paddingInline: dp(2),
+  paddingBlock: dp(1),
+  fontSize: dp(3),
+  backgroundColor: color.background_opacity95,
   color: color.text,
-  fontWeight: 800,
+  fontWeight: 400,
   fontFamily: '"Google Sans Code", monospace',
   cursor: 'pointer',
+  '@media': {
+    '(hover: hover) and (pointer: fine)': {
+      selectors: {
+        '&:hover': {
+          backgroundColor: color.accent,
+          color: color.black,
+        },
+      },
+    },
+  },
+})
+
+export const themeBtn = style({
+  backgroundColor: 'transparent',
 })

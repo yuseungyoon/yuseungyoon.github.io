@@ -25,13 +25,13 @@ export const postLinkFrame = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   listStyleType: 'none',
-  borderBottom: `1px solid ${color.background_opacity95}`,
+  borderBottom: `0.5px solid ${color.text}`,
   color: color.text,
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       ':hover': {
-        backgroundColor: color.text,
-        color: color.text_invert,
+        backgroundColor: color.accent,
+        color: color.black,
       },
     },
   },
@@ -86,6 +86,7 @@ export const postTitleRow = style({
   paddingBlock: dp(1),
   display: 'flex',
   color: color.text,
+  borderBottom: `1.5px solid ${color.text}`,
   width: '100%',
   flexDirection: 'row',
   alignItems: 'center',
