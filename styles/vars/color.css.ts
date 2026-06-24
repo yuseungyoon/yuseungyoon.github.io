@@ -1,6 +1,7 @@
 import { createVar } from '@vanilla-extract/css'
 
 export const color = {
+  black: createVar(),
   background: createVar(),
   background_opacity95: createVar(),
   background_invert: createVar(),

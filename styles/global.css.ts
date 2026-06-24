@@ -1,5 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css'
 import { color } from './vars/color.css'
+import { dp } from './dp'
 
 globalStyle('*, *:before, *:after', {
   boxSizing: 'border-box',
@@ -115,4 +116,12 @@ globalStyle('article ol ol', {
 
 globalStyle('article ol ol ol', {
   listStyleType: 'lower-roman',
+})
+
+globalStyle('button, input[type="button"], input[type="submit"]', {
+  padding: 0,
+  borderRadius: 0,
+  backgroundColor: 'transparent',
+  cursor: 'pointer',
+  border: 'none',
 })

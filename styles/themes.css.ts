@@ -12,14 +12,15 @@ globalStyle(':root', {
 
 globalStyle('body[data-theme="light"]', {
   vars: {
+    [color.black]: '#000',
     [color.white]: '#ffffff',
     [color.background]: '#ffffff',
-    [color.background_opacity95]: 'rgba(235,235,235,0.95)',
+    [color.background_opacity95]: 'rgba(245,245,245,0.95)',
     [color.background_invert]: '#212121',
-    [color.text]: '#212121',
+    [color.text]: '#262626',
     [color.text_invert]: '#ffffff',
     [color.link]: '#2596f3',
-    [color.accent]: '#2596f3',
+    [color.accent]: '#F0FF10',
     [color.blue]: '#2596f3',
     [color.skyblue]: '#84dff6',
     [color.yellow]: 'rgba(255, 242, 0, 1)',
@@ -50,14 +51,15 @@ globalStyle('body[data-theme="light"]', {
 
 globalStyle('body[data-theme="dark"]', {
   vars: {
+    [color.black]: '#000',
     [color.white]: '#ffffff',
     [color.background]: '#111111',
     [color.background_opacity95]: 'rgba(44,44,44,0.95)',
     [color.background_invert]: '#fafafa',
-    [color.text]: '#eee',
+    [color.text]: '#ddd',
     [color.text_invert]: '#111111',
     [color.link]: '#2596f3',
-    [color.accent]: '#84dff6',
+    [color.accent]: '#F0FF10',
     [color.blue]: '#2596f3',
     [color.skyblue]: '#84dff6',
     [color.yellow]: 'rgba(255, 242, 0, 1)',
