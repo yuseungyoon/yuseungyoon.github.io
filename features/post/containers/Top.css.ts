@@ -8,6 +8,7 @@ export const frame = style({
   flexDirection: 'column',
   alignItems: 'flex-start',
   paddingInline: layouts.full,
+  paddingTop: dp(20),
   marginBottom: dp(36),
   marginInline: 'auto',
   maxWidth: layouts.width,

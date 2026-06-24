@@ -40,11 +40,10 @@ export const postLinkFrame = style({
 export const postLinkInner = style({
   display: 'flex',
   width: '100%',
-
   flexDirection: 'column',
   alignItems: 'flex-start',
-  paddingBlock: dp(4),
-  gap: dp(2),
+  paddingBlock: dp(2),
+  gap: dp(3),
   border: '1px solid transparent',
   '@media': {
     [tocBreakpoint]: {
@@ -55,7 +54,7 @@ export const postLinkInner = style({
 })
 
 const postLinkTitleBase = style({
-  fontSize: dp(7),
+  fontSize: dp(6),
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   width: '100%',
   fontWeight: 400,
@@ -68,7 +67,7 @@ const postLinkTitleBase = style({
 export const postLinkTitle = style([
   postLinkTitleBase,
   {
-    lineHeight: 1.15,
+    lineHeight: 1.13,
     display: 'inline-block',
     color: 'inherit',
   },
@@ -90,5 +89,5 @@ export const postTitleRow = style({
   width: '100%',
   flexDirection: 'row',
   alignItems: 'center',
-  gap: dp(13.5),
+  gap: dp(14.25),
 })
