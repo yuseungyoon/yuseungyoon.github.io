@@ -35,6 +35,12 @@ export const postLinkFrame = style({
       },
     },
   },
+  selectors: {
+    '&:active': {
+      backgroundColor: color.accent,
+      color: color.black,
+    },
+  },
 })
 
 export const postLinkInner = style({

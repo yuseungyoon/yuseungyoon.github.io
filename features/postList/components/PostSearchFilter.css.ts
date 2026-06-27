@@ -63,6 +63,12 @@ export const tagButton = style({
       },
     },
   },
+  selectors: {
+    '&:active': {
+      backgroundColor: color.accent,
+      color: color.black,
+    },
+  },
 })
 
 export const tagButtonActive = style({
@@ -72,7 +78,11 @@ export const tagButtonActive = style({
     '(hover: hover) and (pointer: fine)': {
       selectors: {
         '&:hover': {
-          color: color.text,
+          color: color.text_invert,
+          backgroundColor: color.text,
+        },
+        '&:active': {
+          color: color.text_invert,
           backgroundColor: color.text,
         },
       },

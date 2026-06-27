@@ -7,8 +7,7 @@ import { useContext } from 'react'
 import { MenuBtn } from './MenuButton'
 import * as css from './Navigation.css'
 import { NavProvider } from './NavigationProvider'
-import { CrumpledPaperIcon, GitHubLogoIcon, LightningBoltIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
-import Image from 'next/image'
+import { CrumpledPaperIcon, GitHubLogoIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
 
 export function Navigation() {
   return (
@@ -48,7 +47,7 @@ function NavigationContent() {
             {(() => {
               switch (theme) {
                 case 'system':
-                  return <LightningBoltIcon />
+                  return '👽'
                 case 'light':
                   return <SunIcon />
                 case 'dark':

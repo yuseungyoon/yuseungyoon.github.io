@@ -44,12 +44,16 @@ export const categoryBtn = style({
   backgroundColor: color.background_opacity95,
   color: color.text,
   fontWeight: 400,
-  fontFamily: '"Google Sans Code", monospace',
+  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   cursor: 'pointer',
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       selectors: {
         '&:hover': {
+          backgroundColor: color.accent,
+          color: color.black,
+        },
+        '&:active': {
           backgroundColor: color.accent,
           color: color.black,
         },
