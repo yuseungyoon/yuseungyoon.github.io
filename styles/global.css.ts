@@ -1,10 +1,15 @@
 import { globalStyle } from '@vanilla-extract/css'
 import { color } from './vars/color.css'
-import { dp } from './dp'
 
 globalStyle('*, *:before, *:after', {
   boxSizing: 'border-box',
   MozBoxSizing: 'border-box',
+  WebkitTapHighlightColor: 'transparent',
+})
+
+globalStyle('::selection', {
+  backgroundColor: color.accent,
+  color: color.black,
 })
 
 globalStyle('html', {
