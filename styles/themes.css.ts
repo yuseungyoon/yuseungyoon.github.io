@@ -56,7 +56,7 @@ globalStyle('body[data-theme="dark"]', {
     [color.background]: '#111111',
     [color.background_opacity95]: 'rgba(44,44,44,0.95)',
     [color.background_invert]: '#fafafa',
-    [color.text]: '#ddd',
+    [color.text]: '#f0f0f0',
     [color.text_invert]: '#111111',
     [color.link]: '#2596f3',
     [color.accent]: '#F0FF10',
