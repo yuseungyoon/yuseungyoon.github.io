@@ -12,14 +12,14 @@ export const italic = style({
 
 export const code = style({
   verticalAlign: 'text-top',
-  fontSize: dp(3.25),
-  padding: `${dp(0.75)} ${dp(1.6)} ${dp(0.75)} ${dp(1.6)}`,
+  fontSize: dp(3.75),
+  padding: `${dp(0.5)} ${dp(1.5)} ${dp(0.75)} ${dp(1.5)}`,
   fontWeight: 400,
   color: color.text,
   marginRight: dp(0.75),
   backgroundColor: color.notion_background_gray,
   fontFamily: 'Google Sans Code, monospace',
-  borderRadius: dp(2),
+  borderRadius: dp(1),
   border: 'none',
 })
 
