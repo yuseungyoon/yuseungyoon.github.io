@@ -36,7 +36,7 @@ const baseInput = style({
     cursor: 'not-allowed',
   },
   ':focus': {
-    outline: `1.5px solid ${color.text}`,
+    outline: `2px solid ${color.text}`,
     outlineOffset: dp(0.6),
   },
 })

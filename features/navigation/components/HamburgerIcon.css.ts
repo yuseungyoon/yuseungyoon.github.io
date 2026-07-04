@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css'
 const lineBase = {
   display: 'block',
   width: '18px',
-  height: '1.5px',
+  height: '2px',
   backgroundColor: 'currentColor',
   transition: 'transform 0.15s ease, opacity 0.15s ease',
   transformOrigin: 'center',
@@ -23,7 +23,7 @@ export const top = style({
   ...lineBase,
   selectors: {
     [`[data-open="true"] &`]: {
-      transform: 'translateY(3.25px) rotate(45deg)',
+      transform: 'translateY(3.5px) rotate(45deg)',
     },
   },
 })
@@ -32,7 +32,7 @@ export const bottom = style({
   ...lineBase,
   selectors: {
     [`[data-open="true"] &`]: {
-      transform: 'translateY(-3.25px) rotate(-45deg)',
+      transform: 'translateY(-3.5px) rotate(-45deg)',
     },
   },
 })
