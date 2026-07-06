@@ -19,7 +19,7 @@ globalStyle('html', {
 })
 
 globalStyle('body', {
-  fontFamily: '"Mona Sans", "Pretendard"',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   height: 'auto',
   backgroundColor: color.background,
   margin: '0',

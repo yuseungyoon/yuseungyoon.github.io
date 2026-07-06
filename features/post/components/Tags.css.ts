@@ -12,7 +12,7 @@ export const tagsFrame = style({
 export const tag = style({
   display: 'inline-block',
   fontSize: dp(3.5),
-  fontFamily: '"Mona Sans", "Pretendard", monospace',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   fontWeight: 500,
   lineHeight: 1.2,
   backgroundColor: color.background_opacity95,

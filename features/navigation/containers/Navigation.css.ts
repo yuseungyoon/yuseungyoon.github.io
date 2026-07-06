@@ -44,7 +44,7 @@ export const categoryBtn = style({
   backgroundColor: color.background_opacity95,
   color: color.text,
   fontWeight: 400,
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   cursor: 'pointer',
   '@media': {
     '(hover: hover) and (pointer: fine)': {

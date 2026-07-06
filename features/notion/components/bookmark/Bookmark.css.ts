@@ -36,7 +36,7 @@ export const bookmarkTitle = style({
   marginBottom: dp(1.5),
   fontSize: dp(4.25),
   fontWeight: 600,
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   color: color.notion_default,
 })
 
@@ -44,7 +44,7 @@ export const bookmarkUrl = style({
   lineHeight: 1.35,
   fontSize: dp(3),
   fontWeight: 500,
-  fontFamily: '"Google Sans Code", "Pretendard", sans-serif',
+  fontFamily: '"Google Sans Code", "Asta Sans", sans-serif',
   color: color.notion_gray,
 })
 

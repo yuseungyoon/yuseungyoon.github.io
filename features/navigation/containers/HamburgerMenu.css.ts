@@ -18,7 +18,7 @@ export const title = style({
   fontWeight: 800,
   fontSize: dp(4.25),
   lineHeight: 1.2,
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   color: color.text,
   marginBottom: dp(4),
 })
@@ -26,7 +26,7 @@ export const title = style({
 export const groupTitle = style({
   fontWeight: 600,
   lineHeight: 1.2,
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   color: color.text,
   paddingTop: dp(4),
 })
@@ -38,7 +38,7 @@ export const articleList = style({
 export const articleListRow = style([
   {
     marginBlock: dp(4),
-    fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+    fontFamily: '"Archivo","Asta Sans", sans-serif',
     lineHeight: 1.2,
     color: color.text,
     '@media': {

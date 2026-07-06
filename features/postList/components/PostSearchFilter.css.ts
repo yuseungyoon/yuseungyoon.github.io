@@ -31,7 +31,7 @@ export const searchInput = style({
   background: 'transparent',
   color: color.text,
   fontSize: dp(3.5),
-  fontFamily: 'Mona Sans, Pretendard',
+  fontFamily: '"Mona Sans", "Asta Sans", sans-serif',
   paddingBlock: dp(1.5),
   outline: 'none',
 })
@@ -50,7 +50,7 @@ export const tagButton = style({
   borderRadius: dp(0.5),
   cursor: 'pointer',
   color: color.text,
-  fontFamily: 'Mona Sans, Pretendard',
+  fontFamily: '"Mona Sans", "Asta Sans", sans-serif',
   fontSize: dp(3.5),
   backgroundColor: color.background_opacity95,
   '@media': {

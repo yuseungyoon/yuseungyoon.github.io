@@ -61,7 +61,7 @@ export const postLinkInner = style({
 
 const postLinkTitleBase = style({
   fontSize: dp(6),
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   width: '100%',
   fontWeight: 400,
   color: 'inherit',

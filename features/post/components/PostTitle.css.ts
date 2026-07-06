@@ -10,7 +10,7 @@ export const title = style({
   textAlign: 'left',
   verticalAlign: 'middle',
   fontWeight: 700,
-  fontFamily: '"Mona Sans", "Pretendard", monospace',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   lineHeight: 1.15,
   wordBreak: 'break-all',
   '@media': {

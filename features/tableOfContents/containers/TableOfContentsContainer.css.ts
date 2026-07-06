@@ -26,7 +26,7 @@ export const aside = style({
 export const frame = style({})
 
 export const title = style({
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Archivo","Asta Sans", sans-serif',
   fontSize: dp(4.5),
   lineHeight: 1.3,
   marginBlockStart: dp(8),
