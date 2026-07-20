@@ -1,5 +1,5 @@
 export default {
-  title: `yooooon`,
+  title: `SY`,
   description: 'Writings',
   author: 'Seungyoon Yu',
 }
