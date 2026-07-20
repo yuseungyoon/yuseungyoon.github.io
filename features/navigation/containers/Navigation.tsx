@@ -27,11 +27,8 @@ function NavigationContent() {
           <MenuBtn as={Link} href="/" aria-label={`글 리스트 페이지로 이동합니다`}>
             /
           </MenuBtn>
-          <MenuBtn as={'a'} href="https://github.com/y7oon" target="_blank" aria-label={`Github`}>
+          <MenuBtn as={'a'} href="https://github.com/y700n" target="_blank" aria-label={`Github`}>
             <GitHubLogoIcon />
-          </MenuBtn>
-          <MenuBtn as={'a'} href="https://thoughts.yooooon.com" aria-label={`신변잡기 블로그로 이동합니다`}>
-            <CrumpledPaperIcon />
           </MenuBtn>
           <MenuBtn as={'a'} href="/feed.xml" aria-label={`RSS 피드로 이동합니다`}>
             RSS
