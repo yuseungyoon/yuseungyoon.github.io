@@ -1,4 +1,3 @@
-'use client'
 import type { PostIndex } from 'features/notion/types'
 import * as css from './PostInfo.css'
 

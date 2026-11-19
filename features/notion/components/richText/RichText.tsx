@@ -1,11 +1,10 @@
-'use client'
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import { usePathname } from 'next/navigation'
+import { useLocation } from '@tanstack/react-router'
 import { Annotations } from './RTAnnotations'
 import * as css from './RTLink.css'
 
 export function RichText({ richText }: { richText: RichTextItemResponse }) {
-  const p = usePathname()
+  const p = useLocation({ select: location => location.pathname })
   const href = richText.href
 
   if (href) {

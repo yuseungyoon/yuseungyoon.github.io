@@ -1,5 +1,5 @@
 import type { PostIndex } from 'features/notion/types'
-import Link from 'next/link'
+import { Link } from '@tanstack/react-router'
 import * as css from './PostListView.css'
 
 interface PostListViewProps {
@@ -21,10 +21,9 @@ export function PostListView({ posts }: PostListViewProps) {
 
 PostListView.Row = ({ meta }: { meta: PostIndex }) => {
   const year = meta.date.slice(0, 4)
-  const path = `/${year}/${meta.slug}`
   return (
     <li className={css.postLinkFrame}>
-      <Link href={path} className={css.postLinkInner}>
+      <Link to="/$year/$slug" params={{ year, slug: meta.slug }} className={css.postLinkInner}>
         <span className={css.postLinkDate}>{meta.date.split('-').join('.')}</span>
         <span className={css.postLinkTitle}>{`${meta.title}`}</span>
       </Link>

@@ -14,7 +14,8 @@
 # testing
 /coverage
 
-# next.js
+# build output
+/dist/
 /.next/
 /out/
 /.notion-cache/
@@ -42,6 +43,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/app/routeTree.gen.ts
 
 # Local AI Tools
 .claude

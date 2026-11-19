@@ -23,17 +23,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build
         env:
-          NEXT_PUBLIC_ROOT: https://dev.seungyoon-yu.com
           NOTION_TECH_KEY: ${{ secrets.NOTION_TECH_KEY }}
           NOTION_TECH_DATABASE_ID: ${{ vars.NOTION_TECH_DATABASE_ID || secrets.NOTION_TECH_DATABASE_ID }}
+      - run: bun run typecheck
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist/client
 
   deploy:
     needs: build

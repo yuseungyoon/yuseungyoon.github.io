@@ -18,9 +18,9 @@ import { Toggle } from '../components/toggle/Toggle'
 import { NotionDivider } from '../components/divider/NotionDivider'
 import type { ExtendedBlockTypes, NotionBlockComponent } from 'features/notion/types'
 import { Table } from '../components/table/Table'
-import dynamic from 'next/dynamic'
+import { lazy } from 'react'
 import { Code } from '../components/code/Code'
-const Equation = dynamic(() => import('../components/equation/Equation').then(c => ({ default: c.Equation })))
+const Equation = lazy(() => import('../components/equation/Equation').then(c => ({ default: c.Equation })))
 
 export const blockComponentMap: Partial<{ [K in ExtendedBlockTypes]: NotionBlockComponent<K> }> = {
   bookmark: Bookmark,

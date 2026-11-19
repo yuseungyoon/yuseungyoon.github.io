@@ -1,29 +1,18 @@
-'use client'
 import { disassemble } from 'es-hangul'
-import { useAtomValue } from 'jotai'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useDeferredValue, useMemo, useState } from 'react'
+import type { PostIndex } from 'features/notion/types'
+import { useDeferredValue, useMemo } from 'react'
 import { PostListView } from '../components/PostListView'
 import { PostSearchFilter } from '../components/PostSearchFilter'
-import { postsAtom } from '../postList.atom'
 
-export function PostListContainer() {
-  const postData = useAtomValue(postsAtom)
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+type Props = {
+  postData: PostIndex[]
+  keyword: string
+  selectedTagId: string | null
+  onTagSelect: (tagId: string | null) => void
+}
 
-  const [keyword, setKeyword] = useState(searchParams.get('q') ?? '')
-  const deferredKeyword = useDeferredValue(keyword.trim())
-  const [selectedTagId, setSelectedTagId] = useState<string | null>(searchParams.get('t') ?? null)
-
-  const updateSearchParams = (q: string, t: string | null) => {
-    const params = new URLSearchParams()
-    if (q) params.set('q', q)
-    if (t) params.set('t', t)
-    const qs = params.toString()
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
-  }
+export function PostListContainer({ postData, keyword, selectedTagId, onTagSelect }: Props) {
+  const deferredKeyword = useDeferredValue(keyword.trim().toLowerCase())
 
   const tags = useMemo(() => {
     const countMap = new Map<string, { id: string; name: string; count: number }>()
@@ -36,17 +25,6 @@ export function PostListContainer() {
     }
     return [...countMap.values()].sort((a, b) => a.name.localeCompare(b.name))
   }, [postData])
-
-  const handleKeywordChange = (value: string) => {
-    const lower = value.toLowerCase()
-    setKeyword(lower)
-    updateSearchParams(lower.trim(), selectedTagId)
-  }
-
-  const handleTagSelect = (tagId: string | null) => {
-    setSelectedTagId(tagId)
-    updateSearchParams(keyword.trim(), tagId)
-  }
 
   const posts = useMemo(() => {
     const decomposed = deferredKeyword ? disassemble(deferredKeyword) : ''
@@ -65,7 +43,7 @@ export function PostListContainer() {
 
   return (
     <>
-      <PostSearchFilter tags={tags} selectedTagId={selectedTagId} onTagSelect={handleTagSelect} />
+      <PostSearchFilter tags={tags} selectedTagId={selectedTagId} onTagSelect={onTagSelect} />
       <PostListView posts={posts} />
     </>
   )

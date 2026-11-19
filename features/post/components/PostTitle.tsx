@@ -1,4 +1,3 @@
-'use client'
 import * as css from './PostTitle.css'
 
 export function PostTitle({ title }: { title: string }) {

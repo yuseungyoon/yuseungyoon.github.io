@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { tocBreakpoint } from 'app/(routes)/[year]/[slug]/page.css'
+import { tocBreakpoint } from 'features/post/containers/PostPage.css'
 import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
 

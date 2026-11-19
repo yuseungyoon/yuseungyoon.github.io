@@ -1,4 +1,3 @@
-'use client'
 import type { PostIndex } from 'features/notion/types'
 import { PostInfo } from '../components/PostInfo'
 import { PostTitle } from '../components/PostTitle'

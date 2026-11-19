@@ -2,43 +2,42 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "bun run notion:fetch --if-missing && next dev --webpack",
-    "build": "bun run notion:fetch && next build --webpack",
+    "dev": "bun run notion:fetch --if-missing && bun scripts/preparePostData.ts && vite dev",
+    "build": "bun run notion:fetch && bun scripts/preparePostData.ts && vite build",
     "notion:fetch": "bun scripts/fetchNotion.ts",
-    "start": "next start",
+    "start": "vite preview",
+    "typecheck": "tsc --noEmit",
     "lint": "oxlint",
     "format": "oxfmt"
   },
   "dependencies": {
-    "@fische/react": "0.0.3",
     "@notionhq/client": "^5.0.0",
     "@radix-ui/react-icons": "^1.3.2",
+    "@tanstack/react-router": "^1.170.46",
+    "@tanstack/react-start": "^1.169.5",
     "@vanilla-extract/css": "^1.21.0",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "clsx": "^2.1.1",
     "dayjs": "^1.11.18",
     "es-hangul": "^2.3.8",
     "highlight.js": "^11.11.1",
-    "jotai": "^2.14.0",
     "katex": "^0.16.25",
     "linkedom": "^0.18.12",
-    "next": "^16.1.6",
-    "overlay-kit": "^1.8.5",
     "p-map": "^7.0.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "rss": "^1.2.2",
-    "server-only": "^0.0.1"
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/rss": "^0.0.32",
-    "@vanilla-extract/next-plugin": "^2.5.2",
+    "@vanilla-extract/vite-plugin": "^5.2.6",
+    "@vitejs/plugin-react": "^6.3.0",
     "oxfmt": "^0.55.0",
     "oxlint": "^1.70.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^8.3.8"
   }
 }

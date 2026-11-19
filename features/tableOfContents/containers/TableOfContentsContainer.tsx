@@ -1,4 +1,3 @@
-'use client'
 
 import { RenderHeadings } from '../components/RenderHeadings'
 import * as css from './TableOfContentsContainer.css'

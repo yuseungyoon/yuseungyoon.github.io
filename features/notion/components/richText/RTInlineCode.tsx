@@ -5,6 +5,6 @@ interface CodeProps {
   richText?: RichTextItemResponse
 }
 
-export function Code({ richText, ...props }: CodeProps) {
+export function Code({ richText: _richText, ...props }: CodeProps) {
   return <code className={code} {...props} />
 }

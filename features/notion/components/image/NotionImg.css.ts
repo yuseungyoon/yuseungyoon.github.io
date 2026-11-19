@@ -28,20 +28,28 @@ export const figureDefault = style({
   flexDirection: 'column',
   marginInline: layouts.full,
 })
+export const imageDialog = style({
+  border: 0,
+  margin: 0,
+  padding: 0,
+  maxWidth: 'none',
+  maxHeight: 'none',
+  background: 'transparent',
+  selectors: {
+    '&::backdrop': { background: 'rgba(0,0,0,0.8)' },
+  },
+})
+
 export const figureZoomed = style({
   display: 'flex',
   flexDirection: 'column',
-  position: 'fixed',
-  top: 0,
-  left: 0,
+  boxSizing: 'border-box',
   margin: 0,
   padding: dp(4),
   width: '100vw',
-  height: '100vh',
+  height: '100dvh',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: 'rgba(0,0,0,0.8)',
-  zIndex: 999,
 })
 
 export const figcaptionZoomed = style({

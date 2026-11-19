@@ -1,57 +1,58 @@
-'use client'
-
-import { nextTheme, ThemeContext } from 'features/theme'
-import Link from 'next/link'
-import Logo from 'app/favicon.svg'
-import { useContext } from 'react'
-import { MenuBtn } from './MenuButton'
+import { GitHubLogoIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { Link } from '@tanstack/react-router'
+import { useEffect, useState } from 'react'
 import * as css from './Navigation.css'
-import { NavProvider } from './NavigationProvider'
-import { CrumpledPaperIcon, GitHubLogoIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+
+const themeOrder = ['system', 'light', 'dark'] as const
+const themeStorageKey = 'YooooonBlogTheme'
+type Theme = (typeof themeOrder)[number]
 
 export function Navigation() {
-  return (
-    <NavProvider>
-      <NavigationContent />
-    </NavProvider>
-  )
-}
+  const [preference, setPreference] = useState<Theme>('system')
+  useEffect(() => {
+    const saved = localStorage.getItem(themeStorageKey)
+    const savedTheme = themeOrder.find(theme => theme === saved)
+    if (savedTheme) setPreference(savedTheme)
+  }, [])
 
-function NavigationContent() {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  useEffect(() => {
+    const scheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const apply = () => {
+      document.body.dataset.theme = preference === 'system' ? (scheme.matches ? 'dark' : 'light') : preference
+    }
+    apply()
+    scheme.addEventListener('change', apply)
+    return () => scheme.removeEventListener('change', apply)
+  }, [preference])
+
+  const next = themeOrder[(themeOrder.indexOf(preference) + 1) % themeOrder.length]
 
   return (
     <div className={css.container}>
       <div className={css.frame}>
         <div className={css.buttonGroup}>
-          <MenuBtn as={Link} href="/" aria-label={`글 리스트 페이지로 이동합니다`}>
+          <Link to="/" className={css.categoryBtn} aria-label="글 리스트 페이지로 이동합니다">
             /
-          </MenuBtn>
-          <MenuBtn as={'a'} href="https://github.com/aassaapp" target="_blank" aria-label={`Github`}>
+          </Link>
+          <a className={css.categoryBtn} href="https://github.com/aassaapp" target="_blank" rel="noreferrer" aria-label="GitHub">
             <GitHubLogoIcon />
-          </MenuBtn>
-          <MenuBtn as={'a'} href="/feed.xml" aria-label={`RSS 피드로 이동합니다`}>
+          </a>
+          <a className={css.categoryBtn} href="/feed.xml" aria-label="RSS 피드로 이동합니다">
             RSS
-          </MenuBtn>
+          </a>
         </div>
         <div className={css.buttonGroup}>
-          <MenuBtn
+          <button
             type="button"
-            className={css.themeBtn}
-            onClick={toggleTheme}
-            aria-label={`현재 색상 테마는 ${theme}입니다. 버튼을 누르면 ${nextTheme(theme)} 테마로 바뀝니다.`}
+            className={`${css.categoryBtn} ${css.themeBtn}`}
+            onClick={() => {
+              setPreference(next)
+              localStorage.setItem(themeStorageKey, next)
+            }}
+            aria-label={`현재 색상 테마는 ${preference}입니다. 버튼을 누르면 ${next} 테마로 바뀝니다.`}
           >
-            {(() => {
-              switch (theme) {
-                case 'system':
-                  return '👽'
-                case 'light':
-                  return <SunIcon />
-                case 'dark':
-                  return <MoonIcon />
-              }
-            })()}
-          </MenuBtn>
+            {preference === 'system' ? '👽' : preference === 'light' ? <SunIcon /> : <MoonIcon />}
+          </button>
         </div>
       </div>
     </div>

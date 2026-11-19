@@ -1,4 +1,3 @@
-'use client'
 import * as css from './PostSearchFilter.css'
 
 interface PostSearchFilterProps {

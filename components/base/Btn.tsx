@@ -1,9 +1,8 @@
-import { clsx } from 'clsx'
 import type { ComponentProps } from 'react'
 import * as css from './Btn.css'
 
 export function Btn({ className, ...props }: ComponentProps<'button'>) {
-  return <button className={clsx(css.base, className)} {...props} />
+  return <button className={className ? `${css.base} ${className}` : css.base} {...props} />
 }
 
 export function CancelBtn({ ...props }: ComponentProps<'button'>) {
