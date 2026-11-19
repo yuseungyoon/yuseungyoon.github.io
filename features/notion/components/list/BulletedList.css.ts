@@ -6,7 +6,7 @@ export const ul = style({
   listStyleType: 'disc',
   paddingLeft: dp(4),
   marginBlock: dp(2),
-  fontSize: dp(4.25),
+  fontSize: dp(4),
   marginInline: layouts.full,
   maxWidth: `calc(100% - ${dp(14)})`,
   selectors: {

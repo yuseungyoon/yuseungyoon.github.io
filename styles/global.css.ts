@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { color } from './vars/color.css'
 
 globalStyle('*, *:before, *:after', {
@@ -19,7 +20,7 @@ globalStyle('html', {
 })
 
 globalStyle('body', {
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   height: 'auto',
   backgroundColor: color.background,
   margin: '0',
@@ -68,6 +69,7 @@ globalStyle('pre', {
 })
 
 globalStyle('code, pre, pre span', {
+  fontFamily: fontFamily.mono,
   fontFeatureSettings: 'normal',
   MozTabSize: 2,
   tabSize: 2,
@@ -129,4 +131,8 @@ globalStyle('button, input[type="button"], input[type="submit"]', {
   backgroundColor: 'transparent',
   cursor: 'pointer',
   border: 'none',
+})
+
+globalStyle('button, input, select, textarea', {
+  fontFamily: 'inherit',
 })

@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
@@ -34,9 +35,9 @@ export const bookmarkInner = style({
 
 export const bookmarkTitle = style({
   marginBottom: dp(1.5),
-  fontSize: dp(4.25),
+  fontSize: dp(4),
   fontWeight: 600,
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   color: color.notion_default,
 })
 
@@ -44,7 +45,7 @@ export const bookmarkUrl = style({
   lineHeight: 1.35,
   fontSize: dp(3),
   fontWeight: 500,
-  fontFamily: '"Google Sans Code", "Asta Sans", sans-serif',
+  fontFamily: fontFamily.mono,
   color: color.notion_gray,
 })
 

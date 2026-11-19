@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { tocBreakpoint } from 'features/post/containers/PostPage.css'
 import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
@@ -26,7 +27,7 @@ export const aside = style({
 export const frame = style({})
 
 export const title = style({
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   fontSize: dp(4.5),
   lineHeight: 1.3,
   marginBlockStart: dp(8),

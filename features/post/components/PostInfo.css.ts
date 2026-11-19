@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
@@ -12,9 +13,9 @@ export const postInfoFrame = style({
 })
 
 export const postInfoText = style({
-  fontSize: dp(4.25),
+  fontSize: dp(3.75),
   lineHeight: 1.3,
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
-  fontWeight: 500,
+  fontFamily: fontFamily.sans,
+  fontWeight: 400,
   color: color.notion_gray,
 })

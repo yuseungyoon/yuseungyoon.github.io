@@ -1,11 +1,12 @@
 import { globalStyle, style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 globalStyle('pre', {
   margin: 0,
-  fontFamily: 'Google Sans Code, monospace',
+  fontFamily: fontFamily.mono,
   fontSize: '0.85rem',
   lineHeight: 1.5,
 })

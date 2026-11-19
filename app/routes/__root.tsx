@@ -5,7 +5,6 @@ import { Navigation } from 'features/navigation/containers/Navigation'
 import type { ReactNode } from 'react'
 import { SITE_URL } from 'static/site'
 import 'styles/global.css'
-import 'styles/font.css'
 import 'styles/themes.css'
 
 export const Route = createRootRoute({

@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
-import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -8,6 +7,7 @@ export const figureWrapper = style({
   all: 'unset',
   cursor: 'pointer',
   display: 'block',
+  width: '100%',
   margin: 0,
   padding: 0,
   border: 'none',
@@ -41,15 +41,14 @@ export const imageDialog = style({
 })
 
 export const figureZoomed = style({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridTemplateRows: 'minmax(0, 1fr) auto',
+  gridTemplateColumns: 'minmax(0, 1fr)',
   boxSizing: 'border-box',
   margin: 0,
   padding: dp(4),
   width: '100vw',
   height: '100dvh',
-  justifyContent: 'center',
-  alignItems: 'center',
 })
 
 export const figcaptionZoomed = style({
@@ -68,18 +67,13 @@ export const figcaption = style({
 
 export const imgDefault = style({
   borderRadius: dp(1),
+  width: '100%',
   height: 'auto',
-  maxWidth: '100%',
-  '@media': {
-    [breakpoints.desktop]: {
-      maxWidth: '100%',
-    },
-  },
 })
 
 export const imgZoomed = style({
   borderRadius: dp(1),
-  maxWidth: '90vw',
-  maxHeight: '90vh',
-  height: 'auto',
+  width: '100%',
+  height: '100%',
+  objectFit: 'contain',
 })

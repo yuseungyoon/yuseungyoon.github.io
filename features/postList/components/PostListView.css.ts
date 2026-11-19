@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { tocBreakpoint } from 'features/post/containers/PostPage.css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
@@ -48,22 +48,16 @@ export const postLinkInner = style({
   width: '100%',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  paddingBlock: dp(2),
-  gap: dp(3),
+  paddingBlock: dp(3),
+  gap: dp(1),
   border: '1px solid transparent',
-  '@media': {
-    [tocBreakpoint]: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-  },
 })
 
 const postLinkTitleBase = style({
-  fontSize: dp(6),
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontSize: dp(4.5),
+  fontFamily: fontFamily.sans,
   width: '100%',
-  fontWeight: 400,
+  fontWeight: 600,
   color: 'inherit',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -82,7 +76,7 @@ export const postLinkTitle = style([
 export const postLinkDate = style({
   display: 'block',
   fontSize: dp(3),
-  fontFamily: '"Google Sans Code", monospace',
+  fontFamily: fontFamily.mono,
   fontWeight: 400,
   lineHeight: 1.15,
   color: 'inherit',

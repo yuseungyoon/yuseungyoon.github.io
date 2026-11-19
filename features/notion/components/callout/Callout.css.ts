@@ -12,13 +12,13 @@ export const calloutFrame = style({
   marginBlock: dp(4),
   marginInline: layouts.full,
   lineHeight: 1.65,
-  fontSize: dp(4.25),
+  fontSize: dp(4),
   wordBreak: 'break-word',
 })
 
 export const icon = style({
   flexShrink: 0,
-  fontSize: dp(4.25),
+  fontSize: dp(4),
   lineHeight: 1.65,
 })
 

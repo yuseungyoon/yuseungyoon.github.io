@@ -1,22 +1,16 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
-import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 
 export const title = style({
-  fontSize: dp(12),
+  fontSize: dp(6),
   marginBottom: dp(4),
   color: color.text,
   textAlign: 'left',
   verticalAlign: 'middle',
-  fontWeight: 700,
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontWeight: 600,
+  fontFamily: fontFamily.sans,
   lineHeight: 1.15,
   wordBreak: 'break-all',
-  '@media': {
-    [breakpoints.desktop]: {
-      fontSize: dp(18),
-      wordBreak: 'break-word',
-    },
-  },
 })

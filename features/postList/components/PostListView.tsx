@@ -10,7 +10,6 @@ export function PostListView({ posts }: PostListViewProps) {
   return (
     <div className={css.postListFrame}>
       <div className={css.viewLink}>
-        <PostListView.TitleRow />
         {posts.map(p => (
           <PostListView.Row key={p.id} meta={p} />
         ))}

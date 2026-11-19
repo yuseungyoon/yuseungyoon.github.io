@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
@@ -44,7 +45,7 @@ export const categoryBtn = style({
   backgroundColor: color.background_opacity95,
   color: color.text,
   fontWeight: 400,
-  fontFamily: '"Archivo","Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   cursor: 'pointer',
   '@media': {
     '(hover: hover) and (pointer: fine)': {

@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
@@ -18,7 +19,7 @@ export const code = style({
   color: color.text,
   marginRight: dp(0.75),
   backgroundColor: color.notion_background_gray,
-  fontFamily: 'Google Sans Code, monospace',
+  fontFamily: fontFamily.mono,
   borderRadius: dp(1),
   border: 'none',
 })

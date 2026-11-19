@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
@@ -31,7 +32,7 @@ export const searchInput = style({
   background: 'transparent',
   color: color.text,
   fontSize: dp(3.5),
-  fontFamily: '"Mona Sans", "Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   paddingBlock: dp(1.5),
   outline: 'none',
 })
@@ -50,7 +51,7 @@ export const tagButton = style({
   borderRadius: dp(0.5),
   cursor: 'pointer',
   color: color.text,
-  fontFamily: '"Mona Sans", "Asta Sans", sans-serif',
+  fontFamily: fontFamily.sans,
   fontSize: dp(3.5),
   backgroundColor: color.background_opacity95,
   '@media': {
