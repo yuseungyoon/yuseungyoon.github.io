@@ -29,7 +29,7 @@ jobs:
         env:
           NEXT_PUBLIC_ROOT: https://dev.seungyoon-yu.com
           NOTION_TECH_KEY: ${{ secrets.NOTION_TECH_KEY }}
-          NOTION_TECH_DATABASE_ID: ${{ secrets.NOTION_TECH_DATABASE_ID }}
+          NOTION_TECH_DATABASE_ID: ${{ vars.NOTION_TECH_DATABASE_ID || secrets.NOTION_TECH_DATABASE_ID }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
