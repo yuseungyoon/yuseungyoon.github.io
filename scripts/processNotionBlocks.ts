@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, unlink, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { setTimeout as delay } from 'node:timers/promises'
 import { isFullBlock, type BlockObjectResponse, type Client } from '@notionhq/client'
 import { parseHTML } from 'linkedom'
 import pMap from 'p-map'
@@ -8,6 +9,35 @@ import type { ExtendedBookmarkObjectResponse, ExtendedImageBlockObjectResponse }
 import type { TraversableBlock } from '../features/notion/types/unions'
 
 const imageDir = path.join(process.cwd(), 'public', 'notion-img')
+const IMAGE_DOWNLOAD_ATTEMPTS = 4
+
+function imageNetworkError(error: unknown): string {
+  if (error instanceof Error && error.name === 'TimeoutError') return 'request timed out'
+  const code = error instanceof Error && 'code' in error ? error.code : undefined
+  return typeof code === 'string' && /^[A-Z][A-Z0-9_]{1,30}$/.test(code) ? code : 'network error'
+}
+
+async function downloadImage(url: string, blockId: string): Promise<Buffer> {
+  for (let attempt = 1; ; attempt++) {
+    let failure: string
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(30_000) })
+      if (response.ok) return Buffer.from(await response.arrayBuffer())
+      failure = `HTTP ${response.status}`
+      await response.body?.cancel().catch(() => {})
+      if (response.status !== 408 && response.status !== 429 && response.status < 500) throw new ImageDownloadError(failure)
+    } catch (error) {
+      if (error instanceof ImageDownloadError) throw error
+      failure = imageNetworkError(error)
+    }
+
+    if (attempt >= IMAGE_DOWNLOAD_ATTEMPTS) throw new ImageDownloadError(failure)
+    console.warn(`Notion image ${blockId}: ${failure}, retrying (${attempt}/${IMAGE_DOWNLOAD_ATTEMPTS - 1})`)
+    await delay(1000 * 2 ** (attempt - 1))
+  }
+}
+
+class ImageDownloadError extends Error {}
 
 export async function pruneCachedImages(activeImages: ReadonlySet<string>) {
   await mkdir(imageDir, { recursive: true })
@@ -28,18 +58,17 @@ async function cacheImage(
   const url = image.type === 'file' ? image.file.url : image.external.url
 
   try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(30_000) })
-    if (!response.ok) throw new Error(`HTTP ${response.status}`)
     const ext = path.extname(new URL(url).pathname).toLowerCase()
-    const data = Buffer.from(await response.arrayBuffer())
+    const data = await downloadImage(url, block.id)
     const hash = createHash('sha256').update(data).digest('hex').slice(0, 16)
     const filename = `${block.id}-${hash}${/^\.[a-z0-9]{1,8}$/.test(ext) ? ext : '.png'}`
     await mkdir(imageDir, { recursive: true })
     await writeFile(path.join(imageDir, filename), data)
     activeImages.add(filename)
     return { ...block, image: { ...image, cached_url: `/notion-img/${filename}` } }
-  } catch (cause) {
-    if (image.type === 'file') throw new Error(`Could not save Notion image ${block.id}`, { cause })
+  } catch (error) {
+    const reason = error instanceof ImageDownloadError ? error.message : 'could not cache image data'
+    if (image.type === 'file') throw new Error(`Could not save Notion image ${block.id}: ${reason}`)
     console.warn(`Could not cache external image ${block.id}`)
     return block
   }
