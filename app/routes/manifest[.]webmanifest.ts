@@ -12,9 +12,9 @@ export const Route = createFileRoute('/manifest.webmanifest')({
             description: meta.description,
             start_url: '/',
             display: 'standalone',
-            icons: [{ src: '/favicon.ico', sizes: 'any', type: 'image/x-icon' }],
+            icons: [{ src: '/favicon.svg', sizes: 'any', type: 'image/x-icon' }],
           },
-          { headers: { 'Content-Type': 'application/manifest+json; charset=utf-8' } }
+          { headers: { 'Content-Type': 'application/manifest+json; charset=utf-8' } },
         ),
     },
   },

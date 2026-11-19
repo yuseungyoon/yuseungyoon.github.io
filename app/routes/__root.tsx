@@ -1,5 +1,5 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
-import logo from 'assets/logo.svg'
+import logo from '/favicon.svg'
 import meta from 'assets/meta'
 import { Navigation } from 'features/navigation/containers/Navigation'
 import type { ReactNode } from 'react'
