@@ -5,8 +5,8 @@ import { dp } from './dp'
 
 globalStyle(':root', {
   vars: {
-    [layouts.full]: dp(0),
-    [layouts.width]: '32rem',
+    [layouts.full]: dp(2),
+    [layouts.width]: '40rem',
   },
 })
 
