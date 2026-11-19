@@ -1,4 +1,4 @@
-import { getPostIndex } from 'features/notion/remote/r2Fetch.server'
+import { getPostIndex } from 'features/notion/remote/snapshot.server'
 
 export async function startPageLoader() {
   const posts = await getPostIndex()

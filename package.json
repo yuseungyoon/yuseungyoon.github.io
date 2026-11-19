@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
+    "dev": "bun run notion:fetch --if-missing && next dev --webpack",
+    "build": "bun run notion:fetch && next build --webpack",
+    "notion:fetch": "bun scripts/fetchNotion.ts",
     "start": "next start",
     "lint": "oxlint",
     "format": "oxfmt"

@@ -2,7 +2,7 @@ import siteMeta from 'assets/meta'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
-import { getPostIndex } from 'features/notion/remote/r2Fetch.server'
+import { getPostIndex } from 'features/notion/remote/snapshot.server'
 import RSS from 'rss'
 import { ENV } from 'static/env'
 

@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [r2-sync]
+  schedule:
+    - cron: '0 15 * * *'
 
 permissions:
   contents: read
@@ -26,7 +28,8 @@ jobs:
       - run: bun run build
         env:
           NEXT_PUBLIC_ROOT: https://dev.seungyoon-yu.com
-          POST_REPO: https://tech-uploads.yooooon.com
+          NOTION_TECH_KEY: ${{ secrets.NOTION_TECH_KEY }}
+          NOTION_TECH_DATABASE_ID: ${{ secrets.NOTION_TECH_DATABASE_ID }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

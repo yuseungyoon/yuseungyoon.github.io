@@ -17,6 +17,8 @@
 # next.js
 /.next/
 /out/
+/.notion-cache/
+/public/notion-img/
 
 # production
 /build

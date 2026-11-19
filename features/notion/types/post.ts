@@ -18,13 +18,11 @@ export type PostIndex = {
 
 export type PostIndicesResponse = PostIndex[]
 
-export type PostResponse = {
-  id: string
-  title: string
-  slug: string
+export type PostResponse = PostIndex & {
   content: TraversableBlock[]
-  date: string
-  last_edited_time: string
-  summary: string
-  tags: Tag[]
+}
+
+export type NotionSnapshot = {
+  index: PostIndicesResponse
+  posts: Record<string, PostResponse>
 }

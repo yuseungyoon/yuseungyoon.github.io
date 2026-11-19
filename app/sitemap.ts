@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { getPostIndex } from 'features/notion/remote/r2Fetch.server'
+import { getPostIndex } from 'features/notion/remote/snapshot.server'
 import type { MetadataRoute } from 'next'
 import { ENV } from 'static/env'
 
