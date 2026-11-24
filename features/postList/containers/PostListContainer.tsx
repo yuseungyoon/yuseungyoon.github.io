@@ -7,30 +7,17 @@ import { PostSearchFilter } from '../components/PostSearchFilter'
 type Props = {
   postData: PostIndex[]
   keyword: string
-  selectedTagId: string | null
-  onTagSelect: (tagId: string | null) => void
+
+  onKeywordChange: (k: string) => void
 }
 
-export function PostListContainer({ postData, keyword, selectedTagId, onTagSelect }: Props) {
+export function PostListContainer({ postData, keyword, onKeywordChange }: Props) {
   const deferredKeyword = useDeferredValue(keyword.trim().toLowerCase())
-
-  const tags = useMemo(() => {
-    const countMap = new Map<string, { id: string; name: string; count: number }>()
-    for (const post of postData ?? []) {
-      for (const t of post.tags) {
-        const entry = countMap.get(t.id)
-        if (entry) entry.count++
-        else countMap.set(t.id, { id: t.id, name: t.name, count: 1 })
-      }
-    }
-    return [...countMap.values()].sort((a, b) => a.name.localeCompare(b.name))
-  }, [postData])
 
   const posts = useMemo(() => {
     const decomposed = deferredKeyword ? disassemble(deferredKeyword) : ''
     return (
       postData?.filter(p => {
-        if (selectedTagId && !p.tags.some(t => t.id === selectedTagId)) return false
         if (!decomposed) return true
         return (
           disassemble(p.title.toLowerCase()).includes(decomposed) ||
@@ -39,11 +26,11 @@ export function PostListContainer({ postData, keyword, selectedTagId, onTagSelec
         )
       }) ?? []
     )
-  }, [postData, deferredKeyword, selectedTagId])
+  }, [postData, deferredKeyword])
 
   return (
     <>
-      <PostSearchFilter tags={tags} selectedTagId={selectedTagId} onTagSelect={onTagSelect} />
+      {/* <PostSearchFilter onKeywordChange={onKeywordChange} /> */}
       <PostListView posts={posts} />
     </>
   )

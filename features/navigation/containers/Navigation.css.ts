@@ -18,7 +18,6 @@ export const container = style({
 export const frame = style({
   backgroundColor: 'transparent',
   color: color.notion_default,
-  flexDirection: 'row',
   display: 'flex',
   maxWidth: layouts.width,
   justifyContent: 'space-between',
@@ -26,41 +25,25 @@ export const frame = style({
   height: dp(12),
   width: '100%',
   alignItems: 'center',
-  paddingInline: layouts.full,
 })
 
 export const buttonGroup = style({
   display: 'flex',
   flexDirection: 'row',
-  gap: dp(0.5),
+  alignItems: 'center',
+  width: '100%',
+  justifyContent: 'space-between',
 })
 
 export const categoryBtn = style({
   display: 'inline-flex',
-  lineHeight: 1.2,
-  borderRadius: dp(0.5),
-  paddingInline: dp(2),
-  paddingBlock: dp(1),
-  fontSize: dp(3),
-  backgroundColor: color.background_opacity95,
+  lineHeight: 1,
+  fontSize: dp(3.5),
+  backgroundColor: 'transparent',
   color: color.text,
   fontWeight: 400,
-  fontFamily: fontFamily.sans,
+  fontFamily: fontFamily.mono,
   cursor: 'pointer',
-  '@media': {
-    '(hover: hover) and (pointer: fine)': {
-      selectors: {
-        '&:hover': {
-          backgroundColor: color.accent,
-          color: color.black,
-        },
-        '&:active': {
-          backgroundColor: color.accent,
-          color: color.black,
-        },
-      },
-    },
-  },
 })
 
 export const themeBtn = style({

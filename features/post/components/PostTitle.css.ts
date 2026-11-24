@@ -5,7 +5,6 @@ import { color } from 'styles/vars/color.css'
 
 export const title = style({
   fontSize: dp(6),
-  marginBottom: dp(4),
   color: color.text,
   textAlign: 'left',
   verticalAlign: 'middle',

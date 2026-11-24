@@ -2,12 +2,11 @@ import { style } from '@vanilla-extract/css'
 import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
-import { layouts } from 'styles/vars/layouts.css'
 
 export const tagsFrame = style({
   display: 'flex',
   gap: dp(1),
-  marginBlock: layouts.full,
+  marginBlock: dp(2),
 })
 
 export const tag = style({

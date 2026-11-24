@@ -60,4 +60,5 @@ globalFontFace(geistMono, [
 export const fontFamily = {
   sans: `"${monaSans}", "${hangul}", sans-serif`,
   mono: `"${geistMono}", monospace`,
+  list: `"${geistMono}", "${hangul}", sans-serif`,
 }

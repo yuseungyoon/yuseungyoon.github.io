@@ -5,7 +5,6 @@ import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const aside = style({
-  paddingInline: layouts.full,
   order: -1,
   marginBottom: dp(6),
 

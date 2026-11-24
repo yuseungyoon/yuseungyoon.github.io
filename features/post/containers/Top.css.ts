@@ -7,25 +7,12 @@ export const frame = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  paddingInline: layouts.full,
-  paddingTop: dp(20),
-  marginBottom: dp(36),
+  paddingTop: dp(24),
+  marginBottom: dp(24),
   marginInline: 'auto',
   maxWidth: layouts.width,
   width: '100%',
   backgroundColor: 'transparent',
-  '@media': {
-    [breakpoints.desktop_wide]: {},
-    [breakpoints.desktop]: {},
-  },
-})
-
-export const iconFrame = style({
-  marginBottom: '0.5rem',
-})
-
-export const icon = style({
-  fontSize: '2.5rem',
 })
 
 export const subtitle = style({

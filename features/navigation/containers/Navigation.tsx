@@ -32,7 +32,7 @@ export function Navigation() {
       <div className={css.frame}>
         <div className={css.buttonGroup}>
           <Link to="/" className={css.categoryBtn} aria-label="글 리스트 페이지로 이동합니다">
-            /
+            SY
           </Link>
           <a className={css.categoryBtn} href="https://github.com/aassaapp" target="_blank" rel="noreferrer" aria-label="GitHub">
             <GitHubLogoIcon />
@@ -40,8 +40,6 @@ export function Navigation() {
           <a className={css.categoryBtn} href="/feed.xml" aria-label="RSS 피드로 이동합니다">
             RSS
           </a>
-        </div>
-        <div className={css.buttonGroup}>
           <button
             type="button"
             className={`${css.categoryBtn} ${css.themeBtn}`}
@@ -49,8 +47,7 @@ export function Navigation() {
               setPreference(next)
               localStorage.setItem(themeStorageKey, next)
             }}
-            aria-label={`현재 색상 테마는 ${preference}입니다. 버튼을 누르면 ${next} 테마로 바뀝니다.`}
-          >
+            aria-label={`현재 색상 테마는 ${preference}입니다. 버튼을 누르면 ${next} 테마로 바뀝니다.`}>
             {preference === 'system' ? '👽' : preference === 'light' ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>

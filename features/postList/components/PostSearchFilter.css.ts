@@ -6,7 +6,6 @@ import { layouts } from 'styles/vars/layouts.css'
 
 export const filterFrame = style({
   display: 'flex',
-  paddingInline: layouts.full,
   maxWidth: layouts.width,
   marginInline: 'auto',
   paddingTop: dp(8),
@@ -29,11 +28,11 @@ export const filterInputFrame = style({
 export const searchInput = style({
   width: '100%',
   border: 'none',
+  borderBottom: `1px solid ${color.text}`,
   background: 'transparent',
   color: color.text,
   fontSize: dp(3.5),
   fontFamily: fontFamily.sans,
-  paddingBlock: dp(1.5),
   outline: 'none',
 })
 

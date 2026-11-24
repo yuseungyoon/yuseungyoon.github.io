@@ -4,7 +4,6 @@ import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const postInfoFrame = style({
-  marginTop: dp(1.5),
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
@@ -13,7 +12,7 @@ export const postInfoFrame = style({
 })
 
 export const postInfoText = style({
-  fontSize: dp(3.75),
+  fontSize: dp(3.5),
   lineHeight: 1.3,
   fontFamily: fontFamily.sans,
   fontWeight: 400,

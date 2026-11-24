@@ -23,18 +23,9 @@ PostListView.Row = ({ meta }: { meta: PostIndex }) => {
   return (
     <li className={css.postLinkFrame}>
       <Link to="/$year/$slug" params={{ year, slug: meta.slug }} className={css.postLinkInner}>
-        <span className={css.postLinkDate}>{meta.date.split('-').join('.')}</span>
         <span className={css.postLinkTitle}>{`${meta.title}`}</span>
+        <span className={css.postLinkDate}>{meta.date.split('-')[0]}</span>
       </Link>
     </li>
-  )
-}
-
-PostListView.TitleRow = () => {
-  return (
-    <div className={css.postTitleRow}>
-      <span className={css.postLinkDate}>DATE</span>
-      <span className={css.postLinkDate}>TITLE</span>
-    </div>
   )
 }

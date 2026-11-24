@@ -18,21 +18,16 @@ export const Route = createFileRoute('/')({
 function Home() {
   const posts = Route.useLoaderData()
   const { q, t } = Route.useSearch()
-  const navigate = Route.useNavigate()
-  // GitHub Pages serves the same prerendered home page for every query string.
-  const hydrated = useSyncExternalStore(subscribe, () => true, () => false)
+  const hydrated = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  )
 
   return (
     <>
       <About />
-      <PostListContainer
-        postData={posts}
-        keyword={hydrated ? (q ?? '') : ''}
-        selectedTagId={hydrated ? (t ?? null) : null}
-        onTagSelect={tag => {
-          void navigate({ search: previous => ({ ...previous, t: tag ?? undefined }), replace: true, resetScroll: false })
-        }}
-      />
+      <PostListContainer postData={posts} keyword={hydrated ? (q ?? '') : ''} onKeywordChange={() => {}} />
     </>
   )
 }

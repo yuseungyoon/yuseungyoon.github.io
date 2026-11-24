@@ -5,11 +5,9 @@ import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const postListFrame = style({
-  paddingInline: layouts.full,
   paddingBottom: dp(40),
-  paddingTop: dp(12),
+  paddingTop: dp(24),
   maxWidth: layouts.width,
-  marginInline: 'auto',
 })
 
 export const viewLink = style({
@@ -17,6 +15,7 @@ export const viewLink = style({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  width: '100vw',
 })
 
 export const postLinkFrame = style({
@@ -25,20 +24,19 @@ export const postLinkFrame = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   listStyleType: 'none',
-  borderBottom: `1px solid ${color.text}`,
   color: color.text,
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       ':hover': {
-        backgroundColor: color.accent,
-        color: color.black,
+        backgroundColor: color.text,
+        color: color.background,
       },
     },
   },
   selectors: {
     '&:active': {
-      backgroundColor: color.accent,
-      color: color.black,
+      backgroundColor: color.text,
+      color: color.background,
     },
   },
 })
@@ -46,19 +44,22 @@ export const postLinkFrame = style({
 export const postLinkInner = style({
   display: 'flex',
   width: '100%',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  paddingBlock: dp(3),
+  margin: '0 auto',
+  maxWidth: layouts.width,
+  justifyContent: 'center',
+  alignItems: 'center',
+  paddingBlock: dp(0.5),
   gap: dp(1),
   border: '1px solid transparent',
 })
 
 const postLinkTitleBase = style({
-  fontSize: dp(4.5),
-  fontFamily: fontFamily.sans,
+  fontSize: dp(3.4),
+  fontFamily: fontFamily.list,
   width: '100%',
-  fontWeight: 600,
+  fontWeight: 450,
   color: 'inherit',
+  wordSpacing: dp(-1),
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
@@ -67,18 +68,17 @@ const postLinkTitleBase = style({
 export const postLinkTitle = style([
   postLinkTitleBase,
   {
-    lineHeight: 1.13,
+    lineHeight: 1,
     display: 'inline-block',
     color: 'inherit',
   },
 ])
 
 export const postLinkDate = style({
-  display: 'block',
-  fontSize: dp(3),
+  fontSize: dp(3.2),
   fontFamily: fontFamily.mono,
   fontWeight: 400,
-  lineHeight: 1.15,
+  lineHeight: 1,
   color: 'inherit',
 })
 
