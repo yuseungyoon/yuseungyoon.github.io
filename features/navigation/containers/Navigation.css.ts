@@ -38,7 +38,7 @@ export const buttonGroup = style({
 export const categoryBtn = style({
   display: 'inline-flex',
   lineHeight: 1,
-  fontSize: dp(3.5),
+  fontSize: dp(3.25),
   backgroundColor: 'transparent',
   color: color.text,
   fontWeight: 400,

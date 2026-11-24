@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { GitHubLogoIcon, ListBulletIcon, MagicWandIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import { Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import * as css from './Navigation.css'
@@ -48,7 +48,7 @@ export function Navigation() {
               localStorage.setItem(themeStorageKey, next)
             }}
             aria-label={`현재 색상 테마는 ${preference}입니다. 버튼을 누르면 ${next} 테마로 바뀝니다.`}>
-            {preference === 'system' ? '👽' : preference === 'light' ? <SunIcon /> : <MoonIcon />}
+            {preference === 'system' ? <MagicWandIcon /> : preference === 'light' ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
       </div>
