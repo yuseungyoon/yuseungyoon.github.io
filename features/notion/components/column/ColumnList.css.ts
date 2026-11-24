@@ -1,10 +1,8 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
-import { layouts } from 'styles/vars/layouts.css'
 
 const base = style({
   display: 'grid',
-  marginInline: layouts.full,
   padding: 0,
   marginBlock: dp(2),
   gap: dp(4),
@@ -32,5 +30,5 @@ export const columnCount = styleVariants(
     4: responsive(4, 2),
     5: responsive(5, 3),
   },
-  variant => [base, style(variant)]
+  variant => [base, style(variant)],
 )

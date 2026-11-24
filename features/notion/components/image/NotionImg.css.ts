@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
-import { layouts } from 'styles/vars/layouts.css'
 
 export const figureWrapper = style({
   all: 'unset',
@@ -26,7 +25,6 @@ export const figureDefault = style({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  marginInline: layouts.full,
 })
 export const imageDialog = style({
   border: 0,

@@ -1,11 +1,9 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
-import { layouts } from 'styles/vars/layouts.css'
 
 const headingBase = {
   fontSize: dp(4.5),
   lineHeight: 1.3,
-  marginInline: layouts.full,
   marginBlockStart: dp(8),
   marginBlockEnd: dp(2),
 } as const

@@ -1,14 +1,12 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
-import { layouts } from 'styles/vars/layouts.css'
 
 export const ol = style({
   listStyleType: 'decimal',
   paddingLeft: dp(5),
   marginBlock: dp(2),
   fontSize: dp(4),
-  marginInline: layouts.full,
   maxWidth: `calc(100% - ${dp(14)})`,
   selectors: {
     'ol &': {

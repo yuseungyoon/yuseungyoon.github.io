@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
-import { layouts } from 'styles/vars/layouts.css'
 
 export const calloutFrame = style({
   display: 'flex',
@@ -10,7 +9,6 @@ export const calloutFrame = style({
   borderRadius: dp(1),
   padding: dp(4),
   marginBlock: dp(4),
-  marginInline: layouts.full,
   lineHeight: 1.65,
   fontSize: dp(4),
   wordBreak: 'break-word',

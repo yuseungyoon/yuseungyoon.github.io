@@ -3,14 +3,12 @@ import { fontFamily } from 'styles/font.css'
 import { dp } from 'styles/dp'
 import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
-import { layouts } from 'styles/vars/layouts.css'
 
 export const bookmarkFrame = style({
   display: 'flex',
   flexDirection: 'column',
   marginBlock: dp(4),
   borderRadius: dp(2.5),
-  marginInline: layouts.full,
   wordBreak: 'break-all',
   backgroundSize: '25%',
   backgroundPosition: 'center center',
@@ -29,7 +27,6 @@ export const bookmarkInner = style({
   backgroundColor: color.background_opacity95,
   flexDirection: 'column',
   justifyContent: 'center',
-  padding: layouts.full,
   alignItems: 'flex-start',
 })
 

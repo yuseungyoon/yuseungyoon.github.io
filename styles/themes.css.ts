@@ -5,7 +5,8 @@ import { dp } from './dp'
 
 globalStyle(':root', {
   vars: {
-    [layouts.full]: dp(2),
+    [layouts.fullMargin]: dp(0),
+    [layouts.condensedMargin]: dp(2),
     [layouts.width]: '40rem',
   },
 })
